@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace wordleSolver
 {
     class WordBankWriter
     {
+        //only used once to write a usable text file for word bank
         public void WriteWordBankToFile(List<string> wordBank)
         {
             var textFile = @"D:\Documents\Programming\wordleWords2.txt";
-            var wordBankList = WordBankToList(wordBank);
+            var wordBankList = ParseWordBankIntoUsableList(wordBank);
 
             using (StreamWriter writer = new StreamWriter(textFile))
             {
@@ -22,7 +21,7 @@ namespace wordleSolver
             }
         }
 
-        private List<string> WordBankToList(List<string> wordBank)
+        private List<string> ParseWordBankIntoUsableList(List<string> wordBank)
         {
             var newWordBank = new List<string>();
 
