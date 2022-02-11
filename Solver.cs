@@ -7,7 +7,7 @@ namespace wordleSolver
 {
     class Solver
     {
-        public List<string> GetPossibleSolutions(
+        public IEnumerable<string> GetPossibleSolutions(
             string included,
             string excluded,
             string known,
@@ -16,14 +16,13 @@ namespace wordleSolver
         {
             var narrowList = wordBank
                 .Where(word => included.Where(c => word.Contains(c)).Count() == included.Count())
-                .Where(word => excluded.Where(c => word.Contains(c)).Count() == 0)
-                .ToList();
+                .Where(word => excluded.Where(c => word.Contains(c)).Count() == 0);
 
             for (var i = 0; i < known.Length; i ++)
             {
                 if (known[i] != '*')
                 {
-                    narrowList = narrowList.Where(word => word[i].Equals(known[i])).ToList();
+                    narrowList = narrowList.Where(word => word[i].Equals(known[i]));
                 }
             }
 
@@ -33,13 +32,12 @@ namespace wordleSolver
                 {
                     if (fstring[i] != '*')
                     {
-                        narrowList = narrowList.Where(word => !word[i].Equals(fstring[i]))
-                            .ToList();
+                        narrowList = narrowList.Where(word => !word[i].Equals(fstring[i]));
                     }
                 }
             }
 
-            return narrowList.ToList();
+            return narrowList;
         }
 
         public IEnumerable<string> RecommendedGuesses(List<string> wordBank, string included, List<string> allWords)
