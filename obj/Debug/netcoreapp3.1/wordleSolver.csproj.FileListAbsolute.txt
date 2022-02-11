@@ -1,0 +1,14 @@
+D:\Documents\Programming\wordleSolver\bin\Debug\netcoreapp3.1\wordleSolver.exe
+D:\Documents\Programming\wordleSolver\bin\Debug\netcoreapp3.1\wordleSolver.deps.json
+D:\Documents\Programming\wordleSolver\bin\Debug\netcoreapp3.1\wordleSolver.runtimeconfig.json
+D:\Documents\Programming\wordleSolver\bin\Debug\netcoreapp3.1\wordleSolver.runtimeconfig.dev.json
+D:\Documents\Programming\wordleSolver\bin\Debug\netcoreapp3.1\wordleSolver.dll
+D:\Documents\Programming\wordleSolver\bin\Debug\netcoreapp3.1\wordleSolver.pdb
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.csproj.AssemblyReference.cache
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.AssemblyInfoInputs.cache
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.AssemblyInfo.cs
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.csproj.CoreCompileInputs.cache
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.dll
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.pdb
+D:\Documents\Programming\wordleSolver\obj\Debug\netcoreapp3.1\wordleSolver.genruntimeconfig.cache
