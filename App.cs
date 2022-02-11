@@ -10,9 +10,9 @@ namespace wordleSolver
             var reader = new WordBankReader();
             var solver = new Solver();
             
-            var knownIncluded = "o";
-            var knownExcluded = "piushatermj";
-            var knownPosition = "***o*";
+            var knownIncluded = "os";
+            var knownExcluded = "haterpiu";
+            var knownPosition = "**o*s";
             var unknownPosition = new List<string> { "*****" };
 
             var wordBank = reader.GetWordBank();

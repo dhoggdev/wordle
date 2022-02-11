@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace wordleSolver
 {
     class Solver
     {
-        public IEnumerable<string> GetPossibleSolutions(
+        public List<string> GetPossibleSolutions(
             string included,
             string excluded,
             string known,
@@ -15,13 +16,14 @@ namespace wordleSolver
         {
             var narrowList = wordBank
                 .Where(word => included.Where(c => word.Contains(c)).Count() == included.Count())
-                .Where(word => excluded.Where(c => word.Contains(c)).Count() == 0);
+                .Where(word => excluded.Where(c => word.Contains(c)).Count() == 0)
+                .ToList();
 
             for (var i = 0; i < known.Length; i ++)
             {
                 if (known[i] != '*')
                 {
-                    narrowList = narrowList.Where(word => word[i].Equals(known[i]));
+                    narrowList = narrowList.Where(word => word[i].Equals(known[i])).ToList();
                 }
             }
 
@@ -31,12 +33,12 @@ namespace wordleSolver
                 {
                     if (fstring[i] != '*')
                     {
-                        narrowList = narrowList.Where(word => !word[i].Equals(fstring[i]));
+                        narrowList = narrowList.Where(word => !word[i].Equals(fstring[i])).ToList();
                     }
                 }
             }
 
-            return narrowList;
+            return narrowList.ToList();
         }
 
         public IEnumerable<string> RecommendedGuesses(List<string> wordBank, string included, List<string> allWords)
