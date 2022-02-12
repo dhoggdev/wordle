@@ -10,19 +10,18 @@ namespace wordleSolver
             var reader = new WordBankReader();
             var solver = new Solver();
             
-            var knownIncluded = "atur";
-            var knownExcluded = "pioshe";
-            var knownPosition = "**t**";
-            var excludedPosition = new List<string> { "*a*ur" };
+            var knownIncluded = "urqe";
+            var knownExcluded = "aosblnt";
+            var knownPosition = "*****";
+            var excludedPosition = new List<string> { "uru*e", "*q***" };
 
             var wordBank = reader.GetWordBank();
             var possibleWords = solver.GetPossibleSolutions(knownIncluded, knownExcluded, knownPosition, excludedPosition, wordBank);
-            var recommendedGuesses = solver.RecommendedGuesses(possibleWords, knownIncluded, wordBank);
+            var recommendedGuesses = solver.GetRecommendedGuesses(possibleWords, knownIncluded, wordBank);
 
             WriteListToConsole(possibleWords);
             Console.WriteLine("Recommended Guesses: ");
             WriteListToConsole(recommendedGuesses);
-           
         }
 
         public static void WriteListToConsole(IEnumerable<string> list)
