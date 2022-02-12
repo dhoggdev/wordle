@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace wordleSolver
 {
@@ -11,34 +10,15 @@ namespace wordleSolver
             string included,
             string excluded,
             string known,
-            List<string> unknown,
+            List<string> ExcludedPositionsOfIncludedChars,
             List<string> wordBank)
         {
-            var narrowList = wordBank
-                .Where(word => included.Where(c => word.Contains(c)).Count() == included.Count())
-                .Where(word => excluded.Where(c => word.Contains(c)).Count() == 0)
+            return wordBank
+                .Where(word => included.All(c => word.Contains(c)))
+                .Where(word => excluded.All(c => !word.Contains(c)))
+                .Where(word => CharsAppearInKnownPositions(word, known))
+                .Where(word => CharsDoNotAppearInExcludedPositions(word, ExcludedPositionsOfIncludedChars))
                 .ToList();
-
-            for (var i = 0; i < known.Length; i ++)
-            {
-                if (known[i] != '*')
-                {
-                    narrowList = narrowList.Where(word => word[i].Equals(known[i])).ToList();
-                }
-            }
-
-            foreach (var fstring in unknown)
-            {
-                for (var i = 0; i < fstring.Length; i++)
-                {
-                    if (fstring[i] != '*')
-                    {
-                        narrowList = narrowList.Where(word => !word[i].Equals(fstring[i])).ToList();
-                    }
-                }
-            }
-
-            return narrowList.ToList();
         }
 
         public IEnumerable<string> RecommendedGuesses(List<string> wordBank, string included, List<string> allWords)
@@ -108,6 +88,38 @@ namespace wordleSolver
             }
 
             return wordsDictonary;
+        }
+        private bool CharsAppearInKnownPositions(string word, string known)
+        {
+            for (var i = 0; i < known.Length; i++)
+            {
+                if (known[i] != '*')
+                {
+                    if (known[i] != word[i])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private bool CharsDoNotAppearInExcludedPositions(string word, List<string> excludedPositionsOfIncludedChars)
+        {
+            foreach (var fstring in excludedPositionsOfIncludedChars)
+            {
+                for (var i = 0; i < fstring.Length; i++)
+                {
+                    if (fstring[i] != '*')
+                    {
+                        if (fstring[i] == word[i])
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
     }
 }

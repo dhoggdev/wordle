@@ -10,13 +10,13 @@ namespace wordleSolver
             var reader = new WordBankReader();
             var solver = new Solver();
             
-            var knownIncluded = "os";
-            var knownExcluded = "haterpiu";
-            var knownPosition = "**o*s";
-            var unknownPosition = new List<string> { "*****" };
+            var knownIncluded = "atur";
+            var knownExcluded = "pioshe";
+            var knownPosition = "**t**";
+            var excludedPosition = new List<string> { "*a*ur" };
 
             var wordBank = reader.GetWordBank();
-            var possibleWords = solver.GetPossibleSolutions(knownIncluded, knownExcluded, knownPosition, unknownPosition, wordBank);
+            var possibleWords = solver.GetPossibleSolutions(knownIncluded, knownExcluded, knownPosition, excludedPosition, wordBank);
             var recommendedGuesses = solver.RecommendedGuesses(possibleWords, knownIncluded, wordBank);
 
             WriteListToConsole(possibleWords);
