@@ -124,6 +124,7 @@ namespace wordleSolver
 
             return wordsDictonary;
         }
+
         private bool CharsAppearInKnownPositions(string word, string known)
         {
             for (var i = 0; i < known.Length; i++)

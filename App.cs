@@ -10,10 +10,10 @@ namespace wordleSolver
             var reader = new WordBankReader();
             var solver = new Solver();
             
-            var knownIncluded = "urqe";
-            var knownExcluded = "aosblnt";
-            var knownPosition = "*****";
-            var excludedPosition = new List<string> { "uru*e", "*q***" };
+            var knownIncluded = "oe";
+            var knownExcluded = "arsvirus";
+            var knownPosition = "****e";
+            var excludedPosition = new List<string> { "**o**", "*****" };
 
             var wordBank = reader.GetWordBank();
             var possibleWords = solver.GetPossibleSolutions(knownIncluded, knownExcluded, knownPosition, excludedPosition, wordBank);
